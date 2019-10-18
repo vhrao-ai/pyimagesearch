@@ -4,7 +4,7 @@
 # ------------------------
 #   IMPORTS
 # ------------------------
-from .py_image_search.motion_detection.singlemotiondetection import SingleMotionDetector
+from pyimagesearch.motion_detection.singlemotiondetection import SingleMotionDetector
 from imutils.video import VideoStream
 from flask import Response
 from flask import Flask
