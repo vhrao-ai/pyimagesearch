@@ -1,8 +1,7 @@
 # ------------------------
 #   USAGE
 # ------------------------
-# python train.py --dataset Sports-Type-Classifier/data --model model/activity.model \
-# --label-bin model/lb.pickle --epochs 50
+# python train.py --dataset Sports-Type-Classifier/data --model model/activity.model --label-bin model/lb.pickle --epochs 50
 
 # ------------------------
 #   IMPORT
@@ -119,8 +118,8 @@ plt.style.use("ggplot")
 plt.figure()
 plt.plot(np.arange(0, N), H.history["loss"], label="train_loss")
 plt.plot(np.arange(0, N), H.history["val_loss"], label="val_loss")
-plt.plot(np.arange(0, N), H.history["acc"], label="train_acc")
-plt.plot(np.arange(0, N), H.history["val_acc"], label="val_acc")
+plt.plot(np.arange(0, N), H.history["accuracy"], label="train_acc")
+plt.plot(np.arange(0, N), H.history["val_accuracy"], label="val_acc")
 plt.title("Training Loss and Accuracy on Dataset")
 plt.xlabel("Epoch #")
 plt.ylabel("Loss/Accuracy")
