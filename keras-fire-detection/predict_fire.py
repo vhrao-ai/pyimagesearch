@@ -8,9 +8,9 @@
 # -----------------------------
 # Import the necessary packages
 from keras.models import load_model
-from .pyimagesearch import config
 from imutils import paths
 import numpy as np
+import config_params
 import imutils
 import random
 import cv2
@@ -18,17 +18,17 @@ import os
 
 # Load the trained model from disk
 print("[INFO] Loading the training mode...")
-model = load_model(config.MODEL_PATH)
+model = load_model(config_params.MODEL_PATH)
 
 # Grab the paths to the fire and non-fire images, respectively
 print("[INFO] Predicting...")
-firePaths = list(paths.list_images(config.FIRE_PATH))
-nonFirePaths = list(paths.list_images(config.NON_FIRE_PATH))
+firePaths = list(paths.list_images(config_params.FIRE_PATH))
+nonFirePaths = list(paths.list_images(config_params.NON_FIRE_PATH))
 
 # Combine the two image paths lists, randomly shuffle them and sample them
 imagePaths = firePaths + nonFirePaths
 random.shuffle(imagePaths)
-imagePaths = imagePaths[:config.SAMPLE_SIZE]
+imagePaths = imagePaths[:config_params.SAMPLE_SIZE]
 
 # Loop over the sample image paths
 for (i, imgPath) in enumerate(imagePaths):
@@ -41,12 +41,12 @@ for (i, imgPath) in enumerate(imagePaths):
     # Make predictions on the image
     preds = model.predict(np.expand_dims(img, axis=0))[0]
     j = np.argmax(preds)
-    label = config.CLASSES[j]
+    label = config_params.CLASSES[j]
     # Draw the activity on the output frame
     text = label if label == "Non-Fire" else "WARNING! Fire!"
     output = imutils.resize(output, width=500)
     cv2.putText(output, text, (35, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.25, (0, 255, 0), 5)
     # Write the output image to disk
     filename = "{}.png".format(i)
-    p = os.path.sep.join([config.OUTPUT_IMAGE_PATH, filename])
+    p = os.path.sep.join([config_params.OUTPUT_IMAGE_PATH, filename])
     cv2.imwrite(p, output)
