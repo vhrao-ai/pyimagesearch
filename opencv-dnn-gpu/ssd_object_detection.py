@@ -2,9 +2,9 @@
 #   USAGE
 # -----------------------------
 # python ssd_object_detection.py --prototxt MobileNetSSD_deploy.prototxt --model MobileNetSSD_deploy.caffemodel \
-# --input videos/tennis.mp4 --output guitar.avi --display 0
+# --input videos/guitar.mp4 --output guitar.avi --display 0
 # python ssd_object_detection.py --prototxt MobileNetSSD_deploy.prototxt --model MobileNetSSD_deploy.caffemodel \
-# --input guitar.mp4 --output guitar.avi --display 0 --use-gpu 1
+# --input videos/guitar.mp4 --output guitar.avi --display 0 --use-gpu 1
 
 # -----------------------------
 #   IMPORTS
