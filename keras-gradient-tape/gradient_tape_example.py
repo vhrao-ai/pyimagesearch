@@ -8,7 +8,6 @@
 # -----------------------------
 # Import the necessary packages
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.models import Model
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.layers import Conv2D
 from tensorflow.keras.layers import MaxPooling2D
