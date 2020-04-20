@@ -18,7 +18,7 @@ import os
 # -----------------------------
 #   FUNCTIONS
 # -----------------------------
-def dhash(image, hashSize=8):
+def diff_hash(image, hashSize=8):
     # Convert the image to grayscale and resize it adding a single column (width)
     # in order to compute the horizontal gradient
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -45,7 +45,7 @@ hashes = {}
 for imagePath in imagePaths:
     # Load the input image and compute the hash
     image = cv2.imread(imagePath)
-    h = dhash(image)
+    h = diff_hash(image)
     # Grab all the images with that hash, add the current image path to it
     # and store the list back in the hashes dictionary
     p = hashes.get(h, [])
